@@ -25,7 +25,7 @@ public class SongTest {
 	
 	@Test
 	public void shouldAddAndGetSong() {
-	Song song = songRepo.save(new Song("songName", null, null));
+	Song song = songRepo.save(new Song("SongName", null, null));
 	
 	entityManager.persist(song);
 	entityManager.flush();
