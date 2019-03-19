@@ -23,32 +23,29 @@ public class SongTest {
 
 	@Resource
 	private TestEntityManager entityManager;
-	
+
 	@Resource
 	SongRepository songRepo;
-	
+
 	@Resource
 	AlbumRepository albumRepo;
-	
+
 	@Resource
 	ArtistRepository artistRepo;
-	
-	// test below is failing; come back to this.................
-	
+
 	@Test
 	public void shouldAddAndGetSong() {
-		Artist artist = new Artist("Jeff", "imageURL");
-		Album album = new Album("Music album", "imageURL", "label", artist);
+		Artist artist = artistRepo.save(new Artist("Jeff", "imageURL"));
+		Album album = albumRepo.save(new Album("Music album", "imageURL", "label", artist));
 		Song song = songRepo.save(new Song("SongName", "3:33", "songLink", album));
-		
-	
-	entityManager.persist(song);
-	entityManager.flush();
-	entityManager.clear();
-	
-	Long idToFind = 1L;
-	Song songFromDB = songRepo.findById(idToFind).get();
-	
-	assertThat(songFromDB.getSongTitle(), is("SongName"));
-}}
 
+		entityManager.persist(song);
+		entityManager.flush();
+		entityManager.clear();
+
+		Long idToFind = 3L;
+		Song songFromDB = songRepo.findById(idToFind).get();
+
+		assertThat(songFromDB.getSongTitle(), is("SongName"));
+	}
+}
