@@ -35,15 +35,14 @@ public class SongTest {
 
 	@Test
 	public void shouldAddAndGetSong() {
-		Artist artist = artistRepo.save(new Artist("Jeff", "imageURL"));
-		Album album = albumRepo.save(new Album("Music album", "imageURL", "label", artist));
-		Song song = songRepo.save(new Song("SongName", "3:33", "songLink", album));
+
+		Song song = songRepo.save(new Song("SongName", "3:33", "songLink", null));
 
 		entityManager.persist(song);
 		entityManager.flush();
 		entityManager.clear();
 
-		Long idToFind = 3L;
+		Long idToFind = 1L;
 		Song songFromDB = songRepo.findById(idToFind).get();
 
 		assertThat(songFromDB.getSongTitle(), is("SongName"));

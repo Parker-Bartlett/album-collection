@@ -25,7 +25,7 @@ public class ArtistTest {
 	
 	@Test
 	public void shouldAddAndGetArtist() {
-	Artist artist = artistRepo.save(new Artist("artistName", null));
+	Artist artist = artistRepo.save(new Artist("ArtistName", null));
 	
 	entityManager.persist(artist);
 	entityManager.flush();
