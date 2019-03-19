@@ -3,6 +3,9 @@ package org.wecancodeit.albumcollection.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Song {
@@ -12,15 +15,18 @@ public class Song {
 	private Long id;
 	private String songTitle;
 	private String duration;
-	private String link; 
+	private String link;
+	@ManyToOne
+	@JsonIgnore
+	private Album album;
 	
 	public Song() {}
 	
-	public Song(String songTitle, String duration, String link) {
-		
+	public Song(String songTitle, String duration, String link, Album album) {
 		this.songTitle = songTitle;
 		this.duration = duration;
 		this.link = link;
+		this.album = album;
 	}
 
 	public Long getId() {
@@ -38,13 +44,15 @@ public class Song {
 	public String getLink() {
 		return link;
 	}
+	
+	public Album getAlbum() {
+		return album;
+	}
 
 	@Override
 	public String toString() {
-		return "Song [id=" + id + ", songTitle=" + songTitle + ", duration=" + duration + ", link=" + link + "]";
+		return "Song [songTitle=" + songTitle + ", duration=" + duration + ", link=" + link + ", album=" + album + "]";
 	}
 
-	
-	
 	
 }

@@ -10,7 +10,11 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.wecancodeit.albumcollection.models.Album;
+import org.wecancodeit.albumcollection.models.Artist;
 import org.wecancodeit.albumcollection.models.Song;
+import org.wecancodeit.albumcollection.repositories.AlbumRepository;
+import org.wecancodeit.albumcollection.repositories.ArtistRepository;
 import org.wecancodeit.albumcollection.repositories.SongRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,9 +27,20 @@ public class SongTest {
 	@Resource
 	SongRepository songRepo;
 	
+	@Resource
+	AlbumRepository albumRepo;
+	
+	@Resource
+	ArtistRepository artistRepo;
+	
+	// test below is failing; come back to this.................
+	
 	@Test
 	public void shouldAddAndGetSong() {
-	Song song = songRepo.save(new Song("SongName", null, null));
+		Artist artist = new Artist("Jeff", "imageURL");
+		Album album = new Album("Music album", "imageURL", "label", artist);
+		Song song = songRepo.save(new Song("SongName", "3:33", "songLink", album));
+		
 	
 	entityManager.persist(song);
 	entityManager.flush();
