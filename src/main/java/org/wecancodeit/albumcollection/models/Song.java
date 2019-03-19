@@ -1,9 +1,12 @@
 package org.wecancodeit.albumcollection.models;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,6 +22,12 @@ public class Song {
 	@ManyToOne
 	@JsonIgnore
 	private Album album;
+	@OneToMany(mappedBy="song")
+	private Collection<Rating> ratings;
+	@OneToMany(mappedBy="song")
+	private Collection<Comment> comments;
+	@OneToMany(mappedBy="song")
+	private Collection<Tag> tags;
 	
 	public Song() {}
 	

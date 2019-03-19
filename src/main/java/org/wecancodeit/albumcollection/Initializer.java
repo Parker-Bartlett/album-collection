@@ -38,6 +38,7 @@ public class Initializer implements CommandLineRunner {
 		Song song2 = songRepo.save(new Song("Yellow Brick Road", "2:22", "songLink2", album2));
 		Song song3 = songRepo.save(new Song("Backstreet's Back", "3:33", "songLink3", album3));
 		
+		
 	}
 
 	
