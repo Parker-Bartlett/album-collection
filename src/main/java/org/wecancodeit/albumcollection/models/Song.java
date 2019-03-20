@@ -1,16 +1,16 @@
 package org.wecancodeit.albumcollection.models;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,7 +28,8 @@ public class Song {
 	private Album album;
 	@OneToMany(mappedBy="song")
 	private Collection<Rating> ratings;
-	@OneToMany(mappedBy="song")
+	@ElementCollection
+	@CollectionTable
 	private Collection<Comment> comments;
 	@ManyToMany
 	private Collection<Tag> tags;
@@ -41,6 +42,7 @@ public class Song {
 		this.link = link;
 		this.album = album;
 		this.tags = new ArrayList<Tag>();
+		this.comments = new ArrayList<Comment>();
 	}
 
 	public Long getId() {
@@ -63,13 +65,30 @@ public class Song {
 		return album;
 	}
 	
+	public Collection<Rating> getRatings() {
+		return ratings;
+	}
+
+	public Collection<Comment> getComments() {
+		return comments;
+	}
+
+	public Collection<Tag> getTags() {
+		return tags;
+	}
+	
 	public void addTagtoTags(Tag tagToAdd) {
 		tags.add(tagToAdd);
 	}
 
+	public void addComment(Comment commentToAdd) {
+		comments.add(commentToAdd);
+	}
+
 	@Override
 	public String toString() {
-		return "Song [songTitle=" + songTitle + ", duration=" + duration + ", link=" + link + ", album=" + album + "]";
+		return "Song [id=" + id + ", songTitle=" + songTitle + ", duration=" + duration + ", link=" + link + ", album="
+				+ album + ", ratings=" + ratings + ", comments=" + comments + ", tags=" + tags + "]";
 	}
 
 	

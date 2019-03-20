@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Rating {
 
@@ -12,6 +14,7 @@ public class Rating {
 	@GeneratedValue
 	private Long id;
 	@ManyToOne
+	@JsonIgnore
 	private Song song;
 	private double songRating;
 	

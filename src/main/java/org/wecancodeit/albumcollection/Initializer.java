@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import org.wecancodeit.albumcollection.models.Album;
 import org.wecancodeit.albumcollection.models.Artist;
+import org.wecancodeit.albumcollection.models.Comment;
 import org.wecancodeit.albumcollection.models.Song;
 import org.wecancodeit.albumcollection.models.Tag;
 import org.wecancodeit.albumcollection.repositories.AlbumRepository;
@@ -56,7 +57,12 @@ public class Initializer implements CommandLineRunner {
 		songRepo.save(song2);
 		songRepo.save(song3);
 
-		
+		Comment comment1 = new Comment("Cool stuff");
+		Comment comment2 = new Comment("Awful stuff");
+		Comment comment3 = new Comment("Decent stuff");
+		song1.addComment(comment1);
+		song1.addComment(comment2);
+		songRepo.save(song1);
 	}
 
 	
