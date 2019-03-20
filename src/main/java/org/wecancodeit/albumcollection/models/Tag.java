@@ -37,13 +37,5 @@ public class Tag {
 	public Collection<Song> getSongs() {
 		return songs;
 	}
-	
-//	public void addSongToSongs(Song songToAdd) {
-//		songs.add(songToAdd);
-//	}
 
-	@Override
-	public String toString() {
-		return "Tag [id=" + id + ", tagName=" + tagName + ", songs=" + songs + "]";
-	}
 }

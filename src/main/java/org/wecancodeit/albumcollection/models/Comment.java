@@ -17,11 +17,5 @@ public class Comment {
 		return commentContent;
 	}
 
-	@Override
-	public String toString() {
-		return "Comment [commentContent=" + commentContent + "]";
-	}
-	
-	
 }
 

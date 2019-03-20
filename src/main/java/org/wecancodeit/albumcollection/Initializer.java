@@ -65,5 +65,4 @@ public class Initializer implements CommandLineRunner {
 		songRepo.save(song1);
 	}
 
-	
 }

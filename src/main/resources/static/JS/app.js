@@ -21,14 +21,14 @@
 // 	.catch(err => console.log(err));
 
 
-	fetch("/songs")
+fetch("/songs")
 	.then(response => response.json())
 	.then(songs => {
-	  let content = `<ul>`; 
-	  console.log(songs);
-	  songs.forEach(song => {
-		content += `
-				   <li>
+		let songSong = `<ul>`;
+		console.log(songs);
+		songs.forEach(song => {
+			songSong += `				
+				<li>
 					   <h3>${song.songTitle}</h3>
 					   <ul>
 						   ${song.comments.map(comment => {
@@ -42,15 +42,8 @@
 					   </ul>
 				   </li>
 			   `;
-	  });
-	  content += `</ul>`;
-	  let commentsContent = '<ul>';
-	  songs[0].comments.forEach(comment => {
-		  commentsContent += `<li>${comment.commentContent}</li>`
-	  })
-	  commentsContent += '</ul>'
-	  app.innerHTML = commentsContent;
+		});
+		songSong += `</ul>`;
+		app.innerHTML = songSong;
 	})
 	.catch(err => console.log(err));
-    
-

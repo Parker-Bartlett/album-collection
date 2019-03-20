@@ -84,12 +84,6 @@ public class Song {
 	public void addComment(Comment commentToAdd) {
 		comments.add(commentToAdd);
 	}
-
-	@Override
-	public String toString() {
-		return "Song [id=" + id + ", songTitle=" + songTitle + ", duration=" + duration + ", link=" + link + ", album="
-				+ album + ", ratings=" + ratings + ", comments=" + comments + ", tags=" + tags + "]";
-	}
-
+	
 	
 }
