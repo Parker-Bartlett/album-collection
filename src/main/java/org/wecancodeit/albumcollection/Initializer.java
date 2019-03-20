@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 import org.wecancodeit.albumcollection.models.Album;
 import org.wecancodeit.albumcollection.models.Artist;
 import org.wecancodeit.albumcollection.models.Song;
+import org.wecancodeit.albumcollection.models.Tag;
 import org.wecancodeit.albumcollection.repositories.AlbumRepository;
 import org.wecancodeit.albumcollection.repositories.ArtistRepository;
 import org.wecancodeit.albumcollection.repositories.SongRepository;
+import org.wecancodeit.albumcollection.repositories.TagRepository;
 
 @Service
 public class Initializer implements CommandLineRunner {
@@ -22,6 +24,9 @@ public class Initializer implements CommandLineRunner {
 	
 	@Resource
 	ArtistRepository artistRepo;
+	
+	@Resource
+	TagRepository tagRepo;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -38,6 +43,19 @@ public class Initializer implements CommandLineRunner {
 		Song song2 = songRepo.save(new Song("Yellow Brick Road", "2:22", "songLink2", album2));
 		Song song3 = songRepo.save(new Song("Backstreet's Back", "3:33", "songLink3", album3));
 		
+		Tag tag1 = tagRepo.save(new Tag("Awesome"));
+		Tag tag2 = tagRepo.save(new Tag("Sweet"));
+		Tag tag3 = tagRepo.save(new Tag("Dude"));
+		tagRepo.save(tag1);
+		tagRepo.save(tag2);
+		tagRepo.save(tag3);
+		song1.addTagtoTags(tag1);
+		song2.addTagtoTags(tag2);
+		song3.addTagtoTags(tag3);
+		songRepo.save(song1);
+		songRepo.save(song2);
+		songRepo.save(song3);
+
 		
 	}
 

@@ -1,12 +1,16 @@
 package org.wecancodeit.albumcollection.models;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,7 +30,7 @@ public class Song {
 	private Collection<Rating> ratings;
 	@OneToMany(mappedBy="song")
 	private Collection<Comment> comments;
-	@OneToMany(mappedBy="song")
+	@ManyToMany
 	private Collection<Tag> tags;
 	
 	public Song() {}
@@ -36,6 +40,7 @@ public class Song {
 		this.duration = duration;
 		this.link = link;
 		this.album = album;
+		this.tags = new ArrayList<Tag>();
 	}
 
 	public Long getId() {
@@ -56,6 +61,10 @@ public class Song {
 	
 	public Album getAlbum() {
 		return album;
+	}
+	
+	public void addTagtoTags(Tag tagToAdd) {
+		tags.add(tagToAdd);
 	}
 
 	@Override

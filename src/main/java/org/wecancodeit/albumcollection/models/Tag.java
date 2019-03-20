@@ -1,9 +1,13 @@
 package org.wecancodeit.albumcollection.models;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
+
+
 
 @Entity
 public class Tag {
@@ -12,14 +16,13 @@ public class Tag {
 	@GeneratedValue
 	private Long id;
 	private String tagName;
-	@ManyToOne
-	private Song song;
+	@ManyToMany(mappedBy="tags")
+	private Collection<Song> songs;
 	
 	public Tag() {}
 		
-	public Tag(String tagName, Song song) {
+	public Tag(String tagName) {
 		this.tagName = tagName;
-		this.song = song;
 	}
 	
 	public Long getId() {
@@ -28,11 +31,16 @@ public class Tag {
 	public String getTagName() {
 		return tagName;
 	}
-	public Song getSong() {
-		return song;
+	public Collection<Song> getSongs() {
+		return songs;
 	}
+	
+//	public void addSongToSongs(Song songToAdd) {
+//		songs.add(songToAdd);
+//	}
+
 	@Override
 	public String toString() {
-		return "Tag [id=" + id + ", tagName=" + tagName + ", song=" + song + "]";
+		return "Tag [id=" + id + ", tagName=" + tagName + ", songs=" + songs + "]";
 	}
 }
