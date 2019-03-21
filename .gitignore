@@ -29,9 +29,5 @@ HELP.md
 ### VS Code ###
 .vscode/
 
-<<<<<<< HEAD
 /bin/
 node_modules/
-=======
-/bin/
->>>>>>> parent of bf1655c... added parcel
