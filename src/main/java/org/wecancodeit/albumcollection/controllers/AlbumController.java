@@ -23,4 +23,5 @@ import org.wecancodeit.albumcollection.repositories.AlbumRepository;
 			return (Collection<Album>) albumRepo.findAll();
 
 		}
+		
 }
