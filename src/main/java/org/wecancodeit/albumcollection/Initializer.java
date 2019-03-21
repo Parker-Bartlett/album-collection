@@ -47,12 +47,15 @@ public class Initializer implements CommandLineRunner {
 		Tag tag1 = tagRepo.save(new Tag("Awesome"));
 		Tag tag2 = tagRepo.save(new Tag("Sweet"));
 		Tag tag3 = tagRepo.save(new Tag("Dude"));
+		
 		tagRepo.save(tag1);
 		tagRepo.save(tag2);
 		tagRepo.save(tag3);
+		
 		song1.addTagtoTags(tag1);
 		song2.addTagtoTags(tag2);
 		song3.addTagtoTags(tag3);
+		
 		songRepo.save(song1);
 		songRepo.save(song2);
 		songRepo.save(song3);
@@ -60,8 +63,10 @@ public class Initializer implements CommandLineRunner {
 		Comment comment1 = new Comment("Cool stuff");
 		Comment comment2 = new Comment("Awful stuff");
 		Comment comment3 = new Comment("Decent stuff");
+		
 		song1.addComment(comment1);
 		song1.addComment(comment2);
+		
 		songRepo.save(song1);
 	}
 

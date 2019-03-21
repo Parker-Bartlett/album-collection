@@ -1,44 +1,7 @@
-// const app = document.querySelector("#app");
-
-
-// fetch('/songs')
-// 	.then(response => response.json())
-// 	.then(songs => {
-// 		let content = `<ul>`
-// 		songs.forEach((song) => {
-// 			content += `<li>${song.songTitle} ${song.duration} ${song.link}</li>`;
-
-// 			<ul> ${songs.comments.map(songs => {return `
-// 				<li> ${song.songTitle} </li> `;
-// 				})
-// 				}.join("")}
-// 				</ul>
-//     		songs[0].comments.forEach(comment => {
-    		// commentsContent += `<li>${comment.content}</li>`
-	// 	})
-	// 	content += `</ul>`;
-	// 	app.innerHTML = content;
-	// })
-	// .catch(err => console.log(err));
-// // 			<ul> ${songs.comments.map(songs => {return `
-// // 				<li> ${song.songTitle} </li> `;
-// // 				})
-// // 				}.join("")}
-// // 				</ul>
-// //     		songs[0].comments.forEach(comment => {
-//     		// commentsContent += `<li>${comment.content}</li>`
-// 		})
-// 		content += `</ul>`;
-// 		app.innerHTML = content;
-// 	})
-// 	.catch(err => console.log(err));
-
-
 fetch("/songs")
 	.then(response => response.json())
 	.then(songs => {
 		let songSong = `<ul>`;
-		console.log(songs);
 		songs.forEach(song => {
 			songSong += `				
 				<li>
@@ -62,3 +25,43 @@ fetch("/songs")
 		app.innerHTML = songSong;
 	})
 	.catch(err => console.log(err));
+
+buttonEventListener();
+function buttonEventListener(){
+	const albumsButton = document.querySelector('.albums-button')
+	const artistsButton = document.querySelector('.artists-button')
+	const songsButton = document.querySelector('.songs-button')
+
+	albumsButton.addEventListener('click', retrieveAlbums);
+
+	artistsButton.addEventListener('click', ()=> {
+		retrieveArtists(artistsButton)
+		
+	})
+
+	songsButton.addEventListener('click', ()=> {
+		retrieveSongs(songsButton)
+		
+	})
+
+	function retrieveAlbums(){
+		fetch("/albums")
+		.then(response => response.json())
+		.then(albums => {
+		let albumAlbum = `<ul>`;
+		albums.forEach(album => {
+			albumAlbum += `				
+				<li>
+					<h3>${album.albumTitle}</h3>
+				</li>
+			`;
+		})
+		albumAlbum += `</ul>`;
+		app.innerHTML = albumAlbum;
+	})
+	.catch(err => console.log(err));
+	}
+
+	
+
+}
