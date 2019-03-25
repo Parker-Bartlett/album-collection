@@ -16,6 +16,7 @@ function main() {
 	navSongs()
 	navAlbums()
 	navArtists() 
+	addArtists()
 }
 
 function navArtists() {
@@ -44,7 +45,18 @@ function navSongs() {
 		})
 	})
 }
-
+function addArtists(){
+	events.on(getAppContext(), 'click', ()=> {
+		if(event.target.classList.contains('add__artist__button')) {
+			const artistName = document.querySelector('.add__artistName').value
+			const image = document.querySelector('.add__image').value
+			api.postRequest('/artists/add', {
+				artistName : artistName,
+				image : image
+			}, (artists) => getAppContext().innerHTML = Artists(artists))
+		}
+	})
+}
 function getAppContext() {
 	return document.querySelector('#app')
 }

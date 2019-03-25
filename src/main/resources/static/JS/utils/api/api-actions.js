@@ -10,7 +10,7 @@ function postRequest(location, requestBody, callback) {
        method: "POST",
        body: JSON.stringify(requestBody)
     })
-    .then(respone => response.json())
+    .then(response => response.json())
     .then(data => callback(data))
     .catch(err => console.log(err))
 }
