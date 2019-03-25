@@ -2,12 +2,12 @@ package org.wecancodeit.albumcollection.controllers;
 
 import java.util.Collection;
 
-
 import javax.annotation.Resource;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +23,11 @@ public class ArtistController {
 	@GetMapping("/artists")
 	public Collection<Artist> getArtists() {
 		return (Collection<Artist>) artistRepo.findAll();
+	}
+	
+	@GetMapping("/artists/{id}")
+	public Artist getArtist(@PathVariable Long id) {
+		return artistRepo.findById(id).get(); 
 	}
 	
 	@PostMapping("/artists/add")

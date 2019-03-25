@@ -4,6 +4,7 @@ import api from './utils/api/api-actions'
 import Songs from './components/Songs'
 import Albums from './components/Albums'
 import Artists from './components/Artists'
+import Artist from './components/Artist'
 
 main()
 
@@ -17,12 +18,13 @@ function main() {
 	navAlbums()
 	navArtists() 
 	addArtists()
+	viewSingleArtist()
 }
 
 function navArtists() {
 	const artistButton = document.querySelector('.nav__artists');
 	events.on(document.querySelector('.nav__artists'), 'click', ()=> {
-		api.getRequest('/artists', artists => {
+		api.getRequest('/artists', artists => { 
 			getAppContext().innerHTML = Artists(artists)
 		})
 	})
@@ -45,7 +47,8 @@ function navSongs() {
 		})
 	})
 }
-function addArtists(){
+
+function addArtists() {
 	events.on(getAppContext(), 'click', ()=> {
 		if(event.target.classList.contains('add__artist__button')) {
 			const artistName = document.querySelector('.add__artistName').value
@@ -57,6 +60,17 @@ function addArtists(){
 		}
 	})
 }
+
+function viewSingleArtist() {
+	events.on(getAppContext(), 'click', () => {
+		if(event.target.classList.contains('artist__artistName')) {
+			api.getRequest(`/artists/${event.target.id}`, artist => {
+				getAppContext().innerHTML = Artist(artist)
+			})
+		}
+	})
+}
+
 function getAppContext() {
 	return document.querySelector('#app')
 }
