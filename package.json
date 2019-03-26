@@ -1,7 +1,6 @@
 {
   "name": "album-collection",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "parcel build src/main/resources/static/HTML/index.html && rm src/main/resources/static/*.html  && rm src/main/resources/static/*.js  && rm src/main/resources/static/*.js.map && mv ./dist/* src/main/resources/static && rm -rf dist"
@@ -19,5 +18,6 @@
   "homepage": "https://github.com/Parker-Bartlett/album-collection#readme",
   "dependencies": {
     "parcel-bundler": "^1.12.3"
-  }
+  },
+  "description": ""
 }

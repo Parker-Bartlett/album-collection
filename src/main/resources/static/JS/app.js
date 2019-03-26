@@ -19,8 +19,13 @@ function main() {
 	navArtists() 
 	addArtists()
 	viewSingleArtist()
+	addAlbumToArtist()
 }
 
+
+
+
+// All Nav functions will live here
 function navArtists() {
 	const artistButton = document.querySelector('.nav__artists');
 	events.on(document.querySelector('.nav__artists'), 'click', ()=> {
@@ -48,6 +53,15 @@ function navSongs() {
 	})
 }
 
+
+
+
+
+
+
+
+
+//All artist functions will live here
 function addArtists() {
 	events.on(getAppContext(), 'click', ()=> {
 		if(event.target.classList.contains('add__artist__button')) {
@@ -70,10 +84,35 @@ function viewSingleArtist() {
 		}
 	})
 }
+//All Album functions will live here
+
+function addAlbumToArtist(){
+	events.on(getAppContext(), 'click', () =>{
+		if(event.target.classList.contains('add__album__button')){
+			const albumTitle = document.querySelector('.add__albumTitle').value
+			const image = document.querySelector('.add__image').value
+			api.postRequest(`/albums/${event.target.id}`, {
+				albumTitle : albumTitle,
+				image : image	
+			}, (artist) => getAppContext().innerHTML = Artist(artist) )
+		}
+	})
+}
+
+
+
+
+
+
+
+
+
 
 function getAppContext() {
 	return document.querySelector('#app')
 }
+
+
 
 
 
