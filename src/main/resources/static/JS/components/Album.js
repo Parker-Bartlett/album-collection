@@ -9,5 +9,11 @@ export default function Album(album) {
         <ul class="songs">
             <li class="song">${Songs(album.songs)}</li>
         </ul>
+            <section class="add__song">
+                <input type="text" class="add__songTitle" placeholder="Song Title">
+                <input type="text" class="add__duration" placeholder="Duration">
+                <input type="text" class="add__link" placeholder="Link">
+                <button class="add__song__button" id="${album.id}">Add Song</button>
+            </section>
             `
 }

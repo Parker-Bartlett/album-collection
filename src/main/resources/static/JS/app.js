@@ -2,7 +2,9 @@ import events from './utils/events/event-actions'
 import api from './utils/api/api-actions'
 
 import Songs from './components/Songs'
+import Song from './components/Song'
 import Albums from './components/Albums'
+import Album from './components/Album'
 import Artists from './components/Artists'
 import Artist from './components/Artist'
 
@@ -12,14 +14,14 @@ function main() {
 	api.getRequest('/artists', artists => {
 		getAppContext().innerHTML = Artists(artists)
 	})
-	const albumButton = document.querySelector('.nav__albums');
-	console.log(albumButton);
 	navSongs()
 	navAlbums()
 	navArtists() 
 	addArtists()
 	viewSingleArtist()
 	addAlbumToArtist()
+	viewSingleAlbum()
+	addSongToAlbum()
 }
 
 
@@ -28,7 +30,7 @@ function main() {
 // All Nav functions will live here
 function navArtists() {
 	const artistButton = document.querySelector('.nav__artists');
-	events.on(document.querySelector('.nav__artists'), 'click', ()=> {
+	events.on(artistButton, 'click', ()=> {
 		api.getRequest('/artists', artists => { 
 			getAppContext().innerHTML = Artists(artists)
 		})
@@ -52,11 +54,6 @@ function navSongs() {
 		})
 	})
 }
-
-
-
-
-
 
 
 
@@ -91,7 +88,7 @@ function addAlbumToArtist(){
 		if(event.target.classList.contains('add__album__button')){
 			const albumTitle = document.querySelector('.add__albumTitle').value
 			const image = document.querySelector('.add__image').value
-			api.postRequest(`/albums/${event.target.id}`, {
+			api.postRequest(`/albums/add/${event.target.id}`, {
 				albumTitle : albumTitle,
 				image : image	
 			}, (artist) => getAppContext().innerHTML = Artist(artist) )
@@ -99,6 +96,30 @@ function addAlbumToArtist(){
 	})
 }
 
+function viewSingleAlbum(){
+	events.on(getAppContext(), 'click', () => {
+		if(event.target.classList.contains('album__albumTitle')){
+			api.getRequest(`/albums/${event.target.id}`, album => {
+				getAppContext().innerHTML = Album(album)
+			})
+		}
+	})
+}
+
+function addSongToAlbum(){
+	events.on(getAppContext(), 'click', () =>{
+		if(event.target.classList.contains('add__song__button')){
+			const songTitle = document.querySelector('.add__songTitle').value
+			const duration = document.querySelector('.add__duration').value
+			const link = document.querySelector('.add__link').value
+			api.postRequest(`/songs/add/${event.target.id}`, {
+				songTitle : songTitle,
+				duration : duration,
+				link : link
+			}, (album) => getAppContext().innerHTML = Album(album))
+		}
+	})
+}
 
 
 

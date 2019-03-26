@@ -31,7 +31,7 @@ public class AlbumController {
 
 	}
 
-	@PostMapping("/albums/{id}")
+	@PostMapping("/albums/add/{id}")
 	public Artist addAlbumToArtist(@PathVariable Long id, @RequestBody String body) throws JSONException {
 		JSONObject json = new JSONObject(body);
 		String albumTitle = json.getString("albumTitle");
@@ -39,8 +39,13 @@ public class AlbumController {
 		Artist artistToAdd = artistRepo.findById(id).get();
 		albumRepo.save(new Album(albumTitle, image, "recordLabel", artistToAdd));
 		artistToAdd = artistRepo.findById(id).get();
-		return (artistToAdd);
+		return artistToAdd;
 		
+	}
+
+	@GetMapping("/albums/{id}")
+	public Album viewSingleAlbum(@PathVariable Long id) {
+		return albumRepo.findById(id).get();
 	}
 
 }
