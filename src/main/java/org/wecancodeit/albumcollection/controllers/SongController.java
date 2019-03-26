@@ -28,7 +28,11 @@ public class SongController {
 	@GetMapping("/songs")
 	public Collection<Song> getSongs() {
 		return (Collection<Song>) songRepo.findAll();
+	}
 	
+	@GetMapping("/songs/{id}")
+	public Song viewSingleSong(@PathVariable Long id) {
+		return songRepo.findById(id).get();
 	}
 	
 	@PostMapping("/songs/add/{id}")

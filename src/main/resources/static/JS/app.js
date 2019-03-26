@@ -22,6 +22,7 @@ function main() {
 	addAlbumToArtist()
 	viewSingleAlbum()
 	addSongToAlbum()
+	viewSingleSong()
 }
 
 
@@ -117,6 +118,16 @@ function addSongToAlbum(){
 				duration : duration,
 				link : link
 			}, (album) => getAppContext().innerHTML = Album(album))
+		}
+	})
+}
+
+function viewSingleSong() {
+	events.on(getAppContext(), 'click', () => {
+		if(event.target.classList.contains('song__songTitle')) {
+			api.getRequest(`/songs/${event.target.id}`, song => {
+				getAppContext().innerHTML = Song(song)
+			})
 		}
 	})
 }

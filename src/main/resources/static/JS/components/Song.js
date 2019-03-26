@@ -1,6 +1,6 @@
 import Comments from './Comments'
 
-export default function Song(songs) {
+export default function Song(song) {
 
     return `
         <h3 class="song__songTitle">${song.songTitle}</h3>
