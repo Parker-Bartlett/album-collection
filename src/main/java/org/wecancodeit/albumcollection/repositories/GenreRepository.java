@@ -2,9 +2,9 @@ package org.wecancodeit.albumcollection.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import org.wecancodeit.albumcollection.models.Tag;
+import org.wecancodeit.albumcollection.models.Genre;
 
 @Repository
-public interface TagRepository extends CrudRepository<Tag, Long>{
+public interface GenreRepository extends CrudRepository<Genre, Long>{
 
 }

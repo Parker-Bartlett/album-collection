@@ -12,30 +12,30 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-public class Tag {
+public class Genre {
 
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String tagName;
-	@ManyToMany(mappedBy="tags")
+	private String genreName;
+	@ManyToMany(mappedBy="genres")
 	@JsonIgnore
-	private Collection<Song> songs;
+	private Collection<Artist> artists;
 	
-	public Tag() {}
+	public Genre() {}
 		
-	public Tag(String tagName) {
-		this.tagName = tagName;
+	public Genre(String genreName) {
+		this.genreName = genreName;
 	}
 	
 	public Long getId() {
 		return id;
 	}
-	public String getTagName() {
-		return tagName;
+	public String getGenreName() {
+		return genreName;
 	}
-	public Collection<Song> getSongs() {
-		return songs;
+	public Collection<Artist> getArtists() {
+		return artists;
 	}
 
 }

@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import org.wecancodeit.albumcollection.models.Album;
 import org.wecancodeit.albumcollection.models.Artist;
 import org.wecancodeit.albumcollection.models.Comment;
+import org.wecancodeit.albumcollection.models.Genre;
 import org.wecancodeit.albumcollection.models.Rating;
 import org.wecancodeit.albumcollection.models.Song;
-import org.wecancodeit.albumcollection.models.Tag;
 import org.wecancodeit.albumcollection.repositories.AlbumRepository;
 import org.wecancodeit.albumcollection.repositories.ArtistRepository;
+import org.wecancodeit.albumcollection.repositories.GenreRepository;
 import org.wecancodeit.albumcollection.repositories.RatingRepository;
 import org.wecancodeit.albumcollection.repositories.SongRepository;
-import org.wecancodeit.albumcollection.repositories.TagRepository;
 
 @Service
 public class Initializer implements CommandLineRunner {
@@ -29,10 +29,10 @@ public class Initializer implements CommandLineRunner {
 	ArtistRepository artistRepo;
 	
 	@Resource
-	TagRepository tagRepo;
+	RatingRepository ratingRepo;
 	
 	@Resource
-	RatingRepository ratingRepo;
+	GenreRepository genreRepo;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -49,21 +49,21 @@ public class Initializer implements CommandLineRunner {
 		Song song2 = songRepo.save(new Song("Yellow Brick Road", "2:22", "songLink2", album2));
 		Song song3 = songRepo.save(new Song("Backstreet's Back", "3:33", "songLink3", album3));
 		
-		Tag tag1 = tagRepo.save(new Tag("Awesome"));
-		Tag tag2 = tagRepo.save(new Tag("Sweet"));
-		Tag tag3 = tagRepo.save(new Tag("Dude"));
+		Genre genre1 = genreRepo.save(new Genre("Rock"));
+		Genre genre2 = genreRepo.save(new Genre("Classic"));
+		Genre genre3 = genreRepo.save(new Genre("Polka"));
 		
-		tagRepo.save(tag1);
-		tagRepo.save(tag2);
-		tagRepo.save(tag3);
+		genreRepo.save(genre1);
+		genreRepo.save(genre2);
+		genreRepo.save(genre3);
 		
-		song1.addTagtoTags(tag1);
-		song2.addTagtoTags(tag2);
-		song3.addTagtoTags(tag3);
+		artist1.addGenreToGenres(genre1);
+		artist2.addGenreToGenres(genre2);
+		artist3.addGenreToGenres(genre3);
 		
-		songRepo.save(song1);
-		songRepo.save(song2);
-		songRepo.save(song3);
+		artistRepo.save(artist1);
+		artistRepo.save(artist2);
+		artistRepo.save(artist3);
 
 		Comment comment1 = new Comment("Cool stuff");
 		Comment comment2 = new Comment("Awful stuff");
@@ -71,6 +71,7 @@ public class Initializer implements CommandLineRunner {
 		
 		song1.addComment(comment1);
 		song1.addComment(comment2);
+		song2.addComment(comment3);
 		
 		songRepo.save(song1);
 		

@@ -1,4 +1,5 @@
 import Albums from './Albums'
+import Genres from './Genres'
 
 export default function Artist(artist) {
     return `
@@ -8,6 +9,11 @@ export default function Artist(artist) {
         <ul class="albums">
             <li class="album">${Albums(artist.albums)}</li>
         </ul>
+
+        <ul class="genres">
+            <li class="genre">${Genres(artist.genres)}</li>
+        </ul>
+
         <section class="add__album">
             <input type="text" class="add__albumTitle" placeholder="Album Title">
             <input type="text" class="add__image" placeholder="Image URL">

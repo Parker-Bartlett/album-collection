@@ -29,8 +29,6 @@ public class Song {
 	@ElementCollection
 	@CollectionTable
 	private Collection<Comment> comments;
-	@ManyToMany
-	private Collection<Tag> tags;
 	
 	public Song() {}
 	
@@ -39,7 +37,6 @@ public class Song {
 		this.duration = duration;
 		this.link = link;
 		this.album = album;
-		this.tags = new ArrayList<Tag>();
 		this.comments = new ArrayList<Comment>();
 	}
 
@@ -65,14 +62,6 @@ public class Song {
 	
 	public Collection<Comment> getComments() {
 		return comments;
-	}
-
-	public Collection<Tag> getTags() {
-		return tags;
-	}
-	
-	public void addTagtoTags(Tag tagToAdd) {
-		tags.add(tagToAdd);
 	}
 
 	public void addComment(Comment commentToAdd) {
