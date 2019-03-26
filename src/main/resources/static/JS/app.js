@@ -108,6 +108,8 @@ function viewSingleAlbum(){
 	})
 }
 
+// All song functions will live here
+
 function addSongToAlbum(){
 	events.on(getAppContext(), 'click', () =>{
 		if(event.target.classList.contains('add__song__button')){
@@ -132,6 +134,8 @@ function viewSingleSong() {
 		}
 	})
 }
+
+// Comment functions here
 
 function addCommentToSong() {
 	events.on(getAppContext(), 'click', () => {

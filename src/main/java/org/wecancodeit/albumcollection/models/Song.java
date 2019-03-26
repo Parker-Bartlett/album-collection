@@ -26,8 +26,6 @@ public class Song {
 	@ManyToOne
 	@JsonIgnore
 	private Album album;
-	@OneToMany(mappedBy="song")
-	private Collection<Rating> ratings;
 	@ElementCollection
 	@CollectionTable
 	private Collection<Comment> comments;
@@ -65,10 +63,6 @@ public class Song {
 		return album;
 	}
 	
-	public Collection<Rating> getRatings() {
-		return ratings;
-	}
-
 	public Collection<Comment> getComments() {
 		return comments;
 	}

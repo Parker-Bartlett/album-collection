@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 import org.wecancodeit.albumcollection.models.Album;
 import org.wecancodeit.albumcollection.models.Artist;
 import org.wecancodeit.albumcollection.models.Comment;
+import org.wecancodeit.albumcollection.models.Rating;
 import org.wecancodeit.albumcollection.models.Song;
 import org.wecancodeit.albumcollection.models.Tag;
 import org.wecancodeit.albumcollection.repositories.AlbumRepository;
 import org.wecancodeit.albumcollection.repositories.ArtistRepository;
+import org.wecancodeit.albumcollection.repositories.RatingRepository;
 import org.wecancodeit.albumcollection.repositories.SongRepository;
 import org.wecancodeit.albumcollection.repositories.TagRepository;
 
@@ -28,6 +30,9 @@ public class Initializer implements CommandLineRunner {
 	
 	@Resource
 	TagRepository tagRepo;
+	
+	@Resource
+	RatingRepository ratingRepo;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -68,6 +73,14 @@ public class Initializer implements CommandLineRunner {
 		song1.addComment(comment2);
 		
 		songRepo.save(song1);
+		
+		Rating rating1 = new Rating(album1, 5);
+		Rating rating2 = new Rating(album1, 4);
+		Rating rating3 = new Rating(album1, 3);
+		
+		ratingRepo.save(rating1);
+		ratingRepo.save(rating2);
+		ratingRepo.save(rating3);
 	}
 
 }

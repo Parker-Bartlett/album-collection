@@ -1,5 +1,6 @@
 package org.wecancodeit.albumcollection.models;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -17,9 +18,9 @@ public class Album {
 	private Long id;
 	private String albumTitle;
 	private String image;
-	
-	
 	private String recordLabel;
+	@OneToMany(mappedBy="album")
+	private Collection<Rating> ratings;
 	@ManyToOne
 	@JsonIgnore
 	private Artist artist;
@@ -33,6 +34,7 @@ public class Album {
 		this.image = image;
 		this.recordLabel = recordLabel;
 		this.artist = artist;
+		this.ratings = new ArrayList<Rating>();
 	}
 
 
@@ -58,13 +60,9 @@ public class Album {
 	public Artist getArtist() {
 		return artist;
 	}
-
-	@Override
-	public String toString() {
-		return "Album [albumTitle=" + albumTitle + ", image=" + image + ", recordLabel=" + recordLabel + ", artist="
-				+ artist + ", songs=" + songs + "]";
+	
+	public Collection<Rating> getRatings() {
+		return ratings;
 	}
-	
-	
 	
 }

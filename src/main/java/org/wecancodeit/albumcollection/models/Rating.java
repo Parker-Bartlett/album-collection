@@ -15,31 +15,26 @@ public class Rating {
 	private Long id;
 	@ManyToOne
 	@JsonIgnore
-	private Song song;
-	private double songRating;
+	private Album album;
+	private double albumRating;
 	
 	public Rating() {}
 
-	public Rating(Song song, double songRating) {
-		this.song = song;
-		this.songRating = songRating;
+	public Rating(Album album, double albumRating) {
+		this.album = album;
+		this.albumRating = albumRating;
 	}
 	
 	public Long getId() {
 		return id;
 	}
 
-	public Song getSong() {
-		return song;
+	public Album getAlbum() {
+		return album;
 	}
 
-	public double getSongRating() {
-		return songRating;
-	}
-
-	public void setSongRating(double songRating) {
-		this.songRating = songRating;
+	public double getAlbumRating() {
+		return albumRating;
 	}
 	
-
 }
