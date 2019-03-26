@@ -23,6 +23,7 @@ function main() {
 	viewSingleAlbum()
 	addSongToAlbum()
 	viewSingleSong()
+	addCommentToSong()
 }
 
 
@@ -128,6 +129,17 @@ function viewSingleSong() {
 			api.getRequest(`/songs/${event.target.id}`, song => {
 				getAppContext().innerHTML = Song(song)
 			})
+		}
+	})
+}
+
+function addCommentToSong() {
+	events.on(getAppContext(), 'click', () => {
+		if(event.target.classList.contains('add__comment__button')) {
+			const commentContent = document.querySelector('.add__commentContent').value
+			api.postRequest(`/comments/add/${event.target.id}`, {
+				commentContent : commentContent
+			}, (song) => getAppContext().innerHTML = Song(song))
 		}
 	})
 }
