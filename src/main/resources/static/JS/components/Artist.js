@@ -20,5 +20,10 @@ export default function Artist(artist) {
             <button class="add__album__button" id="${artist.id}">Add Album</button>
         </section>
 
+        <section class="add__genre">
+            <input type="text" class="add__genreName" placeholder="Genre">
+            <button class="add__genre__button" id="${artist.id}">Submit</button>
+        </section>
+
             `
 }       

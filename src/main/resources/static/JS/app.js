@@ -24,6 +24,7 @@ function main() {
 	addSongToAlbum()
 	viewSingleSong()
 	addCommentToSong()
+	addGenreToArtist()
 }
 
 
@@ -144,6 +145,19 @@ function addCommentToSong() {
 			api.postRequest(`/comments/add/${event.target.id}`, {
 				commentContent : commentContent
 			}, (song) => getAppContext().innerHTML = Song(song))
+		}
+	})
+}
+
+//genre
+
+function addGenreToArtist() {
+	events.on(getAppContext(), 'click', () => {
+		if(event.target.classList.contains('add__genre__button')) {
+			const genreName = document.querySelector('.add__genreName').value
+			api.postRequest(`/genres/add/${event.target.id}`, {
+				genreName: genreName
+			}, (artist) => getAppContext().innerHTML = Artist(artist))
 		}
 	})
 }
