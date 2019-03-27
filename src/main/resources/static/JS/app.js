@@ -7,6 +7,7 @@ import Albums from './components/Albums'
 import Album from './components/Album'
 import Artists from './components/Artists'
 import Artist from './components/Artist'
+import Genre from './components/Genre'
 
 main()
 
@@ -25,6 +26,7 @@ function main() {
 	viewSingleSong()
 	addCommentToSong()
 	addGenreToArtist()
+	viewSingleGenre()
 }
 
 
@@ -151,6 +153,16 @@ function addCommentToSong() {
 
 //genre
 
+function viewSingleGenre(){ 
+    events.on(getAppContext(), 'click', () => {
+        if(event.target.classList.contains('genre__genreName')){
+            api.getRequest(`/genres/${event.target.id}`, genre => {
+                getAppContext().innerHTML = Genre(genre)
+            })
+        }
+    })
+}
+
 function addGenreToArtist() {
 	events.on(getAppContext(), 'click', () => {
 		if(event.target.classList.contains('add__genre__button')) {
@@ -161,12 +173,6 @@ function addGenreToArtist() {
 		}
 	})
 }
-
-
-
-
-
-
 
 
 

@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +22,11 @@ public class GenreController {
 	
 	@Resource 
 	ArtistRepository artistRepo;
+	
+	@GetMapping("/genres/{id}")
+	public Genre viewSingleGenre(@PathVariable Long id) {
+		return genreRepo.findById(id).get();
+	}
 	
 	@PostMapping ("/genres/add/{id}")
 	public Artist addGenreToArtist(@PathVariable Long id, @RequestBody String body) throws JSONException {
