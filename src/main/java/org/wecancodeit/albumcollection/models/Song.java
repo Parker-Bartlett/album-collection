@@ -8,9 +8,8 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,6 +21,7 @@ public class Song {
 	private Long id;
 	private String songTitle;
 	private String duration;
+	@Lob
 	private String link;
 	@ManyToOne
 	@JsonIgnore
