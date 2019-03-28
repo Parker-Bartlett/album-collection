@@ -9,5 +9,6 @@ public class AlbumCollectionApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AlbumCollectionApplication.class, args);
 	}
+	
 
 }

@@ -1,0 +1,1 @@
+{"version":3,"sources":["artists.css"],"names":[],"mappings":"AAAA,GACA,YAEA,CAEA,sBAHA,qBAKA","file":"app.430cb644.css","sourceRoot":"../src/main/resources/static/HTML","sourcesContent":["ul{\ndisplay: flex;\nflex-direction: column;\n}\n\n.artist__container{\n    flex-direction: column;\n}"]}
