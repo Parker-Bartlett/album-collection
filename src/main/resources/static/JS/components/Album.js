@@ -17,5 +17,10 @@ export default function Album(album) {
                 <input type="text" class="add__link" placeholder="Link">
                 <button class="add__song__button" id="${album.id}">Add Song</button>
             </section>
+
+            <section class="add__rating">
+                    <input type="test" class="add__rating__value" placeholder="rating">
+                    <button class="add__rating__button" id="${album.id}">Submit</button>
+            </section>
             `
 }

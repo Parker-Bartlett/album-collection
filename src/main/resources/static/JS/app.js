@@ -26,6 +26,7 @@ function main() {
 	viewSingleSong()
 	addCommentToSong()
 	addGenreToArtist()
+	addRatingToAlbum()
 }
 
 
@@ -171,6 +172,23 @@ function addGenreToArtist() {
 			}, (artist) => {
 				getAppContext().innerHTML = Artist(artist)
 			})
+		}
+	})
+}
+
+//ratings
+
+function addRatingToAlbum() {
+	events.on(getAppContext(), 'click', (event) => {
+		if(event.target.classList.contains('add__rating__button')) {
+			const rating = document.querySelector('.add__rating__value').value
+			if (rating >= 1 && rating <= 5) {
+				api.postRequest(`/ratings/add/${event.target.id}`, {
+					rating: rating
+				}, (album) => {
+					getAppContext().innerHTML = Album(album)
+				})
+			}
 		}
 	})
 }

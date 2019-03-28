@@ -10,5 +10,7 @@ function averageRating(ratings) {
     for (let i = 0; i < ratings.length; i++) {
         count += ratings[i].albumRating
     }
-    return (count / ratings.length)
+    let average = count / ratings.length
+    average = average.toFixed(2)
+    return average
 }
