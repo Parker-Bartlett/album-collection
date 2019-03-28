@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,EACI,6BAAiC,CACjC,QAAS,CACT,SACF","file":"CSS.fcd5a657.css","sourceRoot":"..\\src\\main\\resources\\static\\HTML","sourcesContent":["*{\r\n    font-family: 'Roboto', sans-serif;\r\n    margin: 0;\r\n    padding: 0;\r\n  }"]}
