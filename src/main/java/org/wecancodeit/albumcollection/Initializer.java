@@ -41,9 +41,9 @@ public class Initializer implements CommandLineRunner {
 		Artist artist2 = artistRepo.save(new Artist("Elton John", ".images/EltonJohn.jpg"));
 		Artist artist3 = artistRepo.save(new Artist("Backstreet Boys", ".images/backstreetBoys.jpg"));
 		
-		Album album1 = albumRepo.save(new Album("Animals", "animals.jpg", "label1", artist1));
-		Album album2 = albumRepo.save(new Album("Yellow Brick Road", "yellowBrickRoad.jpg", "label2", artist2));
-		Album album3 = albumRepo.save(new Album("Backstreet's Back", "backstreetsBack.jpg", "label3", artist3));
+		Album album1 = albumRepo.save(new Album("Animals", ".images/animals.jpg", "label1", artist1));
+		Album album2 = albumRepo.save(new Album("Yellow Brick Road", ".images/yellowBrickRoad.jpg", "label2", artist2));
+		Album album3 = albumRepo.save(new Album("Backstreet's Back", ".images/backstreetsBack.jpg", "label3", artist3));
 		
 		Song song1 = songRepo.save(new Song("Dogs", "17:10", "https://www.youtube.com/watch?v=PMmu9KiTo30", album1));
 		Song song2 = songRepo.save(new Song("Pigs On The Wing", "3:24", "https://www.youtube.com/watch?v=KGSPUOaHYn4", album1));
