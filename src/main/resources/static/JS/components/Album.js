@@ -4,7 +4,7 @@ import Ratings from './Ratings'
 export default function Album(album) {
     return `
         <h3 class="album__albumTitle">${album.albumTitle}</h3>
-        <p class="album__image">${album.image}</p>
+        <image src="${album.image}">
         <p class="album__recordLabel">${album.recordLabel}</p>
         <p class="album__ratings">${Ratings(album.ratings)}</p>
         <ul class="songs">

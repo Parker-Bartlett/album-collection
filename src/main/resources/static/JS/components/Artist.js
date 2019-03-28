@@ -6,7 +6,7 @@ export default function Artist(artist) {
     return `
     <div class="artist__container">
         <h3 class="artist__artistName">${artist.artistName}</h3>
-        <p class="artist__image">${artist.image}</p>
+        <img src="${artist.image}" class="artist__image">
  
         <ul class="albums">
             <li class="album">${Albums(artist.albums)}</li>
