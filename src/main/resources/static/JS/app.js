@@ -26,11 +26,7 @@ function main() {
 	viewSingleSong()
 	addCommentToSong()
 	addGenreToArtist()
-<<<<<<< HEAD
 	addRatingToAlbum()
-=======
-	viewSingleGenre()
->>>>>>> parent of 9bbd660... Added sidebars to index.html
 }
 
 
