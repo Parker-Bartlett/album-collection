@@ -15,6 +15,7 @@ import org.wecancodeit.albumcollection.repositories.RatingRepository;
 
 @RestController
 public class RatingController {
+	
 	@Resource
 	AlbumRepository albums;
 	
