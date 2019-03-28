@@ -37,17 +37,20 @@ public class Initializer implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Artist artist1 = artistRepo.save(new Artist("Pink Floyd", "imageUrl"));
-		Artist artist2 = artistRepo.save(new Artist("Elton John", "imageUrl"));
-		Artist artist3 = artistRepo.save(new Artist("Backstreet Boys", "imageURL"));
+		Artist artist1 = artistRepo.save(new Artist("Pink Floyd", ".images/pinkFloyd.jpg"));
+		Artist artist2 = artistRepo.save(new Artist("Elton John", ".images/EltonJohn.jpg"));
+		Artist artist3 = artistRepo.save(new Artist("Backstreet Boys", ".images/backstreetBoys.jpg"));
 		
-		Album album1 = albumRepo.save(new Album("Animals", "imageURL", "label1", artist1));
-		Album album2 = albumRepo.save(new Album("Yellow Brick Road", "imageURL", "label2", artist2));
-		Album album3 = albumRepo.save(new Album("Backstreet's Back", "imageURL", "label3", artist3));
+		Album album1 = albumRepo.save(new Album("Animals", "images/animals.jpg", "label1", artist1));
+		Album album2 = albumRepo.save(new Album("Yellow Brick Road", ".images/yellowBrickRoad.jpg", "label2", artist2));
+		Album album3 = albumRepo.save(new Album("Backstreet's Back", ".images/backstreetsBack.jpg", "label3", artist3));
 		
-		Song song1 = songRepo.save(new Song("Dogs", "1:11", "songLink1", album1));
-		Song song2 = songRepo.save(new Song("Yellow Brick Road", "2:22", "songLink2", album2));
-		Song song3 = songRepo.save(new Song("Backstreet's Back", "3:33", "songLink3", album3));
+		Song song1 = songRepo.save(new Song("Dogs", "17:10", "https://www.youtube.com/watch?v=PMmu9KiTo30", album1));
+		Song song2 = songRepo.save(new Song("Pigs On The Wing", "3:24", "https://www.youtube.com/watch?v=KGSPUOaHYn4", album1));
+		Song song3 = songRepo.save(new Song("Benny and Jets", "5:24", "https://www.youtube.com/watch?v=_8ch87hRnwQ", album2));
+		Song song4 = songRepo.save(new Song("Yellow Brick Road", "3:14", "https://www.youtube.com/watch?v=DDOL7iY8kfo", album2));
+		Song song5 = songRepo.save(new Song("Backstreet's Back", "6:00", "https://www.youtube.com/watch?v=6M6samPEMpM", album3));
+		Song song6 = songRepo.save(new Song("Hey Mr. DJ", "4:24", "https://www.youtube.com/watch?v=wk067r43xtY", album3));
 		
 		Genre genre1 = genreRepo.save(new Genre("Rock"));
 		Genre genre2 = genreRepo.save(new Genre("Classic"));
