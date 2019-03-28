@@ -26,7 +26,11 @@ function main() {
 	viewSingleSong()
 	addCommentToSong()
 	addGenreToArtist()
+<<<<<<< HEAD
 	addRatingToAlbum()
+=======
+	viewSingleGenre()
+>>>>>>> parent of 9bbd660... Added sidebars to index.html
 }
 
 
@@ -169,9 +173,7 @@ function addGenreToArtist() {
 			const genreName = document.querySelector('.add__genreName').value
 			api.postRequest(`/genres/add/${event.target.id}`, {
 				genreName: genreName
-			}, (artist) => {
-				getAppContext().innerHTML = Artist(artist)
-			})
+			}, (artist) => getAppContext().innerHTML = Artist(artist))
 		}
 	})
 }
