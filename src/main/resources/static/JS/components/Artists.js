@@ -1,3 +1,5 @@
+import'../../CSS/artists.css'
+
 export default function Artists(artists) {
     return `
         <ul class="artists">

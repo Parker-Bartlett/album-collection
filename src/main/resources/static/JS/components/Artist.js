@@ -1,8 +1,10 @@
 import Albums from './Albums'
 import Genres from './Genres'
+import'../../CSS/artists.css'
 
 export default function Artist(artist) {
     return `
+    <div class="artist__container">
         <h3 class="artist__artistName">${artist.artistName}</h3>
         <p class="artist__image">${artist.image}</p>
  
@@ -24,6 +26,6 @@ export default function Artist(artist) {
             <input type="text" class="add__genreName" placeholder="Genre">
             <button class="add__genre__button" id="${artist.id}">Submit</button>
         </section>
-
+    </div>
             `
 }       

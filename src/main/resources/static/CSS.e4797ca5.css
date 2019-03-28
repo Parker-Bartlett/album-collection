@@ -1,0 +1,2 @@
+*{font-family:Roboto,sans-serif;margin:0;padding:0}ul{list-style:none}header{padding:1em}@media (max-width:700px){article{grid-column:1/4}}.nav__header ul{display:flex;flex-direction:row;text-decoration:none;justify-content:center;align-items:center;background:#eaeaea}.whole__page__grid{display:grid;grid-template-columns:.5fr 1fr .5fr;grid-gap:1em;background:#eaeaea;padding-top:1em;min-height:100vh}#app{height:100%;justify-content:center;align-content:center;flex-direction:column}#app,.artists{display:flex}
+/*# sourceMappingURL=/CSS.e4797ca5.css.map */
