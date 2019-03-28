@@ -26,7 +26,6 @@ function main() {
 	viewSingleSong()
 	addCommentToSong()
 	addGenreToArtist()
-	viewSingleGenre()
 }
 
 
@@ -169,7 +168,9 @@ function addGenreToArtist() {
 			const genreName = document.querySelector('.add__genreName').value
 			api.postRequest(`/genres/add/${event.target.id}`, {
 				genreName: genreName
-			}, (artist) => getAppContext().innerHTML = Artist(artist))
+			}, (artist) => {
+				getAppContext().innerHTML = Artist(artist)
+			})
 		}
 	})
 }

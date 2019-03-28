@@ -7,7 +7,6 @@ export default function Album(album) {
         <p class="album__image">${album.image}</p>
         <p class="album__recordLabel">${album.recordLabel}</p>
         <p class="album__ratings">${Ratings(album.ratings)}</p>
- 
         <ul class="songs">
             <li class="song">${Songs(album.songs)}</li>
         </ul>
