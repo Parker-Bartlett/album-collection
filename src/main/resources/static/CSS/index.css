@@ -29,12 +29,16 @@
 
 .whole__page__grid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: .5fr 1fr .5fr;
     grid-gap: 1em;
     background: #eaeaea;
     padding-top: 1em;
+    min-height: 100vh;
 }
 
-#sidebar__left{
-    column-width: 20px;
+#app{
+  display: flex;
+  height: 100%; 
+  justify-content: center;
+  align-content: center; 
 }
