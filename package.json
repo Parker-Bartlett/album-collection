@@ -19,8 +19,8 @@
   "dependencies": {
     "parcel-bundler": "^1.12.3"
   },
-  "description": "",
   "devDependencies": {
     "cssnano": "^4.1.10"
-  }
+  },
+  "description": ""
 }
