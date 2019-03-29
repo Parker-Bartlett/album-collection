@@ -3,11 +3,12 @@ import Ratings from './Ratings'
 
 export default function Album(album) {
     return `
-        <h3 class="album__albumTitle">${album.albumTitle}</h3>
+        <h3 class="album__albumTitle title">Album: ${album.albumTitle}</h3>
         <image src="${album.image}">
-        <p class="album__recordLabel">${album.recordLabel}</p>
-        <p class="album__ratings">${Ratings(album.ratings)}</p>
+        <p class="album__recordLabel">Record Label: ${album.recordLabel}</p>
+        <p class="album__ratings">Rating: ${Ratings(album.ratings)}/5</p>
         <ul class="songs">
+            <h3>Songs</h3>
             <li class="song">${Songs(album.songs)}</li>
         </ul>
         
@@ -19,7 +20,7 @@ export default function Album(album) {
             </section>
 
             <section class="add__rating">
-                <input type="test" class="add__rating__value" placeholder="Rating">
+                <input type="text" class="add__rating__value" placeholder="Rating">
                 <button class="add__rating__button" id="${album.id}">Submit</button>
             </section>
             `

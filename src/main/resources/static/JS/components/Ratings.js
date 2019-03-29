@@ -1,6 +1,6 @@
 export default function Ratings(ratings) {
     return `
-        <h3>${averageRating(ratings)}</h3>
+        ${averageRating(ratings)}
          `
 }
 

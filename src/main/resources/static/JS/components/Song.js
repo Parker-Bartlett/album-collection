@@ -3,12 +3,13 @@ import Comments from './Comments'
 export default function Song(song) {
 
     return `
-        <h3 class="song__songTitle">${song.songTitle}</h3>
-        <p class="song__duration">${song.duration}</p>
-        <a href="${song.link}" class="song__link">video</a>
+        <h3 class="song__songTitle item">${song.songTitle}</h3>
+        <p class="song__duration item">${song.duration}</p>
+        <a href="${song.link}" class="song__link item">video</a>
  
+        <h3>Comments</h3>
         <ul class="comments">
-            <li class="comment">${Comments(song.comments)}</li>
+            <li class="comment item">${Comments(song.comments)}</li>
         </ul>
 
         <section class="add__comment">

@@ -3,7 +3,7 @@ export default function Comments(comments) {
         .map(comment => {
             return `
             <ul>
-                <li>${comment.commentContent}</li>
+                <li class="item">${comment.commentContent}</li>
             </ul>
             `
         }).join('')

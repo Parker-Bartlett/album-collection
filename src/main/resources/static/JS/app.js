@@ -93,9 +93,11 @@ function addAlbumToArtist(){
 		if(event.target.classList.contains('add__album__button')){
 			const albumTitle = document.querySelector('.add__albumTitle').value
 			const image = document.querySelector('.add__image').value
+			const recordLabel = document.querySelector('.add__label').value
 			api.postRequest(`/albums/add/${event.target.id}`, {
 				albumTitle : albumTitle,
-				image : image	
+				image : image,
+				recordLabel: recordLabel	
 			}, (artist) => getAppContext().innerHTML = Artist(artist) )
 		}
 	})

@@ -36,8 +36,9 @@ public class AlbumController {
 		JSONObject json = new JSONObject(body);
 		String albumTitle = json.getString("albumTitle");
 		String image = json.getString("image");
+		String recordLabel = json.getString("recordLabel");
 		Artist artistToAdd = artistRepo.findById(id).get();
-		albumRepo.save(new Album(albumTitle, image, "recordLabel", artistToAdd));
+		albumRepo.save(new Album(albumTitle, image, recordLabel, artistToAdd));
 		artistToAdd = artistRepo.findById(id).get();
 		return artistToAdd;
 		
